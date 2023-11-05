@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className='bg-gradient-to-r from-blue-400 to-purple-500 p-5 sm:p-10  flex flex-col items-center justify-center'>
-      <h1 className='text-center font-bold text-3xl'>FindMyPlace.com</h1>
+      <h1 className='text-center font-bold text-3xl font-mono'>FindMyPlace.com</h1>
       <input
         type="number"
         value={pincode}
