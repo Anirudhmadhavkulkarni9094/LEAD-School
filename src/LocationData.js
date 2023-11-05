@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 function LocationData(props) {
   const { postCode, country, countryAbbreviation, places } = props;
@@ -11,15 +12,20 @@ function LocationData(props) {
       <p><strong>Country Abbreviation:</strong> {countryAbbreviation}</p>
 
       <h3 className="text-2xl sm:text-3xl font-bold mt-4 text-center">Places</h3>
-      <ul className=" grid justify-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-full m-auto">
+      <ul className="grid justify-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-full m-auto">
         {places.map((place, index) => (
-          <div key={index} className="mb-2 bg-white shadow-2xl rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 m-5">
+          <motion.div
+            key={index}
+            className="mb-2 bg-white shadow-2xl rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 m-5"
+            initial={{ scale: 0.95, rotate: 0 }}
+            whileHover={{ scale: 1, rotate: 5 }}
+          >
             <p><strong>Place Name:</strong> {place['place name']}</p>
             <p><strong>State:</strong> {place.state}</p>
             <p><strong>State Abbreviation:</strong> {place['state abbreviation']}</p>
             <p><strong>Longitude:</strong> {place.longitude}</p>
             <p><strong>Latitude:</strong> {place.latitude}</p>
-          </div>
+          </motion.div>
         ))}
       </ul>
     </div>
